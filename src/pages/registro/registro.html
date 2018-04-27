@@ -1,0 +1,93 @@
+
+<ion-header>
+  <ion-navbar color='navbarColor'>
+  <!--   <ion-img class="imgLogo" src="../assets/imgs/logo_blanco.png"></ion-img>-->
+    <ion-title><img alt="logo" height="40"   src="assets/imgs/logo_blanco.png" ></ion-title>
+  </ion-navbar>
+</ion-header>
+
+ <ion-content padding>
+
+  <form [formGroup]="rForm" novalidate >
+
+    <ion-item>
+      <ion-label class="labelBlack">Registro De Usuario</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Nombre:</ion-label>
+      <ion-input type="text"  [(ngModel)]="user.med_nombre" formControlName="nombre" name="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="rForm.get('nombre').errors && rForm.get('nombre').dirty">
+      <p color="danger" ion-text *ngIf="rForm.get('nombre').hasError('required')">*Requerido</p>
+      <p color="danger" ion-text *ngIf="rForm.get('nombre').hasError('pattern')">*Ingresa un formato correcto</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Apellidos:</ion-label>
+      <ion-input type="text"  [(ngModel)]="user.med_apellidos" formControlName="apellidos" name="apellidos"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="rForm.get('apellidos').errors && rForm.get('apellidos').dirty">
+      <p color="danger" ion-text *ngIf="rForm.get('apellidos').hasError('required')">*Requerido</p>
+      <p color="danger" ion-text *ngIf="rForm.get('apellidos').hasError('pattern')">*Ingresa un formato correcto</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Correo:</ion-label>
+      <ion-input  [(ngModel)]="user.med_email" name="correo" formControlName="correo"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="rForm.get('correo').errors && rForm.get('correo').dirty">
+      <p color="danger" ion-text *ngIf="rForm.get('correo').hasError('required')">*Requerido</p>
+      <p color="danger" ion-text *ngIf="rForm.get('correo').hasError('email')">*Ingresa un formato correcto</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contraseña:</ion-label>
+      <ion-input type="password" [(ngModel)]="user.med_pass" formControlName="password" name="pass"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="rForm.get('password').errors && rForm.get('password').dirty">
+      <p color="danger" ion-text *ngIf="rForm.get('password').hasError('required')">*Requerido</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Confirmar Contraseña:</ion-label>
+      <ion-input type="password"  [(ngModel)]="user.med_conf_pass" formControlName="confirmPassword" name="confirmPassword"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="rForm.get('confirmPassword').errors && rForm.get('confirmPassword').dirty">
+      <p color="danger" ion-text *ngIf="rForm.get('confirmPassword').hasError('required')">*Requerido</p>
+    </ion-item>
+    <ion-item  *ngIf="rForm.controls.confirmPassword.touched && rForm.hasError('mismatchedPasswords') && rForm.controls.password.valid">
+      <p color="danger" >*No concuerdan las contraseñas.</p>
+      </ion-item>
+    <ion-item>
+      <ion-label floating>Cédula Profesional:</ion-label>
+      <ion-input type="text" [(ngModel)]="user.med_cedula" name="cedula" formControlName="cedula" ></ion-input>
+    </ion-item>
+    <ion-item *ngIf="rForm.get('cedula').errors && rForm.get('cedula').dirty">
+      <p color="danger" ion-text *ngIf="rForm.get('cedula').hasError('required')">*Requerido</p>
+      <p color="danger" ion-text *ngIf="rForm.get('cedula').hasError('maxlength')">*Ingresa un formato correcto</p>
+      <p color="danger" ion-text *ngIf="rForm.get('cedula').hasError('minlength')">*Ingresa un formato correcto</p>
+    </ion-item>
+ <!--<ion-list>
+   <br/>
+   <ion-item>
+     <ion-label>Términos y Condiciones</ion-label>
+     <ion-checkbox [(ngModel)]="tCondiciones"></ion-checkbox>
+   </ion-item>
+
+   <ion-item>
+     <ion-label>Aviso de Privacidad</ion-label>
+     <ion-checkbox [(ngModel)]="aPrivacidad"></ion-checkbox>
+   </ion-item>
+   <br/>
+ </ion-list>-->
+
+    <div padding>
+      <button ion-button block type="submit" (click)="saveUser();" [disabled]="!rForm.valid">Registrar</button>
+    </div>
+
+  </form>
+
+  </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title><img alt="logo" height="40" class="imgFooter"  src="assets/imgs/firmagon_logo.png" ></ion-title>
+  </ion-toolbar>
+</ion-footer>

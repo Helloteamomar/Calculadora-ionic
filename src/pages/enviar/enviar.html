@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color='navbarColor'>
+ <!--   <ion-img class="imgLogo" src="../assets/imgs/logo_blanco.png"></ion-img>-->
+    <ion-title><img alt="logo" height="40"   src="assets/imgs/logo_blanco.png" ></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+       <form [formGroup]="Form" novalidate>
+  <ion-item>
+    <ion-title class="labelBlack">Enviar paciente</ion-title>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Nombre:</ion-label>
+      <ion-input  formControlName="nombre" type="text"  [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+
+
+<ion-item *ngIf="Form.get('nombre').errors && Form.get('nombre').dirty">
+  <p color="danger" ion-text *ngIf="Form.get('nombre').hasError('required')">*Requerido</p>
+</ion-item>
+
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+      <ion-input type="email" formControlName="correo" [(ngModel)]="correo"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="Form.get('correo').errors && Form.get('correo').dirty">
+    <p color="danger" ion-text *ngIf="Form.get('correo').hasError('required')">*Requerido</p>
+    <p color="danger" ion-text *ngIf="Form.get('correo').hasError('email')">*Ingresa un formato correcto</p>
+  </ion-item>
+
+  <div padding>
+    <button class="btnEnviar" (click)="pEnviar();"  [disabled]="!Form.valid" ion-button block type="submit">Enviar</button>
+    <br/>
+    <button class="btnCalculadora" (click)="pCalculadora();"  ion-button block type="submit">Volver a Calcular</button>
+  </div>
+</form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title><img alt="logo" height="40" class="imgFooter"  src="assets/imgs/firmagon_logo.png" ></ion-title>
+  </ion-toolbar>
+</ion-footer>

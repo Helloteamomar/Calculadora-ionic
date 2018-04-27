@@ -3,8 +3,15 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { BienvenidaPage } from '../pages/bienvenida/bienvenida';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { RegistroPage } from '../pages/registro/registro';
+import { CalculadoraPage } from '../pages/calculadora/calculadora';
+import { CalcularPage } from '../pages/calcular/calcular';
+import { NoticiasPage } from '../pages/noticias/noticias';
+import { VideoPage } from '../pages/video/video';
+import { SalirPage } from '../pages/salir/salir';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -12,17 +19,21 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = BienvenidaPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon:string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Calculadora', component: CalculadoraPage, icon: 'calculator'},
+      { title: 'Noticias', component: NoticiasPage, icon: "megaphone"},
+      { title: 'Perfil', component: PerfilPage, icon: "person"},
+      { title: 'Video', component: VideoPage, icon: "logo-youtube"},
+      { title: 'Salir', component: BienvenidaPage, icon: "log-out"},
     ];
 
   }

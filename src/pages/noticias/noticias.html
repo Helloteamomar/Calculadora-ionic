@@ -1,0 +1,46 @@
+<ion-header>
+ <ion-navbar color='navbarColor'>
+   <button ion-button menuToggle>
+     <ion-icon name="menu"></ion-icon>
+   </button>
+     <ion-title><img alt="logo" height="40"   src="assets/imgs/logo_blanco.png"></ion-title>
+ </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+  <ion-card-content *ngFor="let user of users" >
+    <div class="divo">
+      <ion-grid>
+        <ion-row class="rowBottom">
+          <ion-col class="colHeader" col-4>
+            <img alt="logo" class="imgHeader" src="assets/imgs/icons/icon_noticias.png" >
+          </ion-col>
+          <ion-col class="colTitulo" col-8>
+            <h2 class="txtTitulo">{{user.not_titulo}}</h2>
+            <h2 class="txtFecha">{{user.not_fecha}}</h2>
+          </ion-col>
+        </ion-row>
+      <div>
+        <br/>
+        <span class="txtContenido">{{user.not_contenido}}</span>
+      </div>
+        <span><img src="{{user.not_imagen}}"></span>
+      <div class="imgUrl">
+        <a class="txtRef" href="{{ user.not_url }}">Link: {{ user.not_url }}</a>
+      </div>
+      </ion-grid>
+    </div>
+  </ion-card-content>
+
+
+
+</ion-content>
+
+
+
+<ion-footer>
+ <ion-toolbar>
+   <ion-title><img alt="logo" height="40" class="imgFooter"  src="assets/imgs/firmagon_logo.png" ></ion-title>
+ </ion-toolbar>
+</ion-footer>

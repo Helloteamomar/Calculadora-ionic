@@ -1,0 +1,43 @@
+<ion-content padding no-bounce class="backgroundContent">
+<br/>
+   <img alt="logo" src="assets/imgs/logo_blanco.png" >
+
+   <form [formGroup]="myForm" novalidate>
+     <ion-list>
+
+       <ion-label class="txtBienvenida">Correo:</ion-label>
+         <ion-item>
+           <ion-input [(ngModel)]="user.ucorreo" formControlName="correo" type="text" placeholder="* Ingrese su correo electrónico:" clearInput></ion-input>
+         </ion-item>
+         <ion-item *ngIf="myForm.get('correo').errors && myForm.get('correo').dirty">
+           <p color="danger" ion-text *ngIf="myForm.get('correo').hasError('required')">*Requerido</p>
+           <p color="danger" ion-text *ngIf="myForm.get('correo').hasError('email')">*Ingresa un formato correcto</p>
+         </ion-item>
+
+       <ion-label class="txtBienvenida">Contraseña:</ion-label>
+         <ion-item>
+           <ion-input [(ngModel)]="user.pass" formControlName="contraseña" type="password" placeholder="* Ingrese su contraseña:" clearInput></ion-input>
+         </ion-item>
+         <ion-item *ngIf="myForm.get('contraseña').errors && myForm.get('contraseña').dirty">
+           <p color="danger" ion-text *ngIf="myForm.get('contraseña').hasError('required')">*Requerido</p>
+         </ion-item>
+         <br/>
+
+       <div padding>
+         <button ion-button class="btn" color="light" (click)="pPerfil();" block type="submit" [disabled]="!myForm.valid">Ingresar</button>
+         <br/>
+         <button ion-button class="btn1" class="nuevoRegistro" (click)="pRegistro();" block type="submit">Nuevo Registro</button>
+           <p class="txtContraseña" (click)="pRecuperacion();">Recuperar contraseña</p>
+       </div>
+
+       <div>
+         <p class="txtFooter">Si es la primera vez que ingresará a la aplicación favor de hacer su registro</p>
+       </div>
+
+     </ion-list>
+   </form>
+</ion-content>
+
+
+<ion-footer>
+</ion-footer>

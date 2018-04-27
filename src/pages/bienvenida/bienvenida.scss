@@ -1,0 +1,53 @@
+page-bienvenida {
+
+  .backgroundContent{
+    background: url('../assets/imgs/login_fondo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: cover;
+  }
+
+  .txtBienvenida{
+    color: white;
+    font-size: 150%
+  }
+
+  .btn{
+    color: white;
+    background-color: #671A27;
+  }
+
+  .btn1{
+    color: white;
+    position: relative;
+    width: 100%;
+  }
+
+  .imgLogo{
+    width: 100%;
+    height: 25%;
+    position: relative;
+    background-color: transparent;
+  }
+
+  .nuevoRegistro{
+    color: white;
+    text-align: center;
+    font-size: 100%;
+  }
+
+  .txtFooter{
+    text-align: center;
+    color: white;
+    font-size: 13px;
+  }
+
+  .txtContraseña{
+    text-align:center;
+    color:white;
+    font-size: 13px;
+    text-decoration: underline;
+  }
+
+
+}
